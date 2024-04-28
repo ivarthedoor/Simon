@@ -9,22 +9,23 @@ def clear():
         os.system("cls")
 
 main_sequence = []
-main_sequence.append(str(random.randint(1, 4)))
 
-
-while True:
-    print(main_sequence)
-    sleep(1)
+def show_sequence():
     clear()
+    for number in main_sequence:
+        print(number)
+        sleep(1)
+        clear()
+running = True
+
+while running:
+    main_sequence.append(str(random.randint(1, 4)))
+    show_sequence()
     user_sequence = input("Wprowadź poprzednią sekwęcję")
     join_sequence = "".join(main_sequence)
-    if user_sequence == join_sequence:
-        main_sequence.append(str(random.randint(1, 4)))
-    else:
+    if user_sequence != join_sequence:
         print("Odpowiedź błędna")
+        running = False
 
 
-
-print(main_sequence)
-sleep(1)
 
